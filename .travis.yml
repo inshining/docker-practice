@@ -13,5 +13,15 @@ script:
   - docker run -e CI=true inyeob/docker-react-app npm run test -- --coverage
 
 
-after_success:
-  - echo "Test success"
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-practice-plaform"
+  env: "Dockerpracticeplaform-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-133275553188"
+  path: "docker-practice-plaform" 
+  on:
+    branch: main
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
