@@ -12,5 +12,5 @@ before_install:
 script: 
   - docker run -e CI=true inyeob/docker-react-app npm run test -- --coverage
 
-after_success:
-  - echo "Test success"
+# after_success:
+#   - echo "Test success"
